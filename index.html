@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Nkaa</title>
+<meta name="description" content="Privacy policy for Nkaa, an offline Mobile Money bookkeeping app. Nkaa processes everything on your device and sends nothing anywhere.">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    color: #1b1b1b;
+    background: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6e6e6; background: #121212; }
+    a { color: #8ab4f8; }
+    .meta, hr { border-color: #333; }
+    code { background: #2a2a2a; }
+  }
+  h1 { font-size: 1.9rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; }
+  .meta { color: #666; font-size: .95rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .lead { font-size: 1.05rem; }
+  .callout { background: rgba(127,127,127,.1); border-radius: 8px; padding: .9rem 1.1rem; }
+  code { background: #f1f1f1; padding: .1rem .35rem; border-radius: 4px; font-size: .9em; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  a { color: #1a56db; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy for Nkaa</h1>
+<div class="meta">
+  <strong>Effective date:</strong> 26 June 2026<br>
+  <strong>App:</strong> Nkaa (package <code>app.vendorledger.android</code>)<br>
+  <strong>Contact:</strong> <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a>
+</div>
+
+<p class="lead">Nkaa is an offline bookkeeping app for small and informal businesses that get paid
+through Mobile Money (MTN Mobile Money and Orange Money). This policy explains what data
+Nkaa accesses, how it is used, and — importantly — what Nkaa does <strong>not</strong> do with your data.</p>
+
+<p class="callout">The short version: <strong>Nkaa processes everything on your device and sends nothing
+anywhere.</strong> We do not have a server that receives your data, we do not collect it, and we do
+not share it with anyone.</p>
+
+<h2>What data Nkaa accesses</h2>
+<ul>
+  <li><strong>Mobile Money transaction SMS.</strong> With your permission, Nkaa reads the transaction
+    messages your mobile operator sends you (money received, money sent, withdrawals, fees). It uses
+    these to build your ledger automatically. Nkaa only interprets Mobile Money transaction messages;
+    other SMS in your inbox are ignored and not stored.</li>
+  <li><strong>Manual entries you add.</strong> Cash sales and expenses you type in yourself (for
+    transactions that don't generate an SMS).</li>
+  <li><strong>The ledger Nkaa builds</strong> from the above: amounts, dates, transaction direction,
+    fees, counterparties as they appear in the message, and the labels you apply (for example Business
+    or Private).</li>
+</ul>
+<p>Nkaa does <strong>not</strong> access your contacts, your photos, your location, your microphone,
+or your camera.</p>
+
+<h2>Permissions Nkaa requests, and why</h2>
+<ul>
+  <li><strong>Read SMS (<code>READ_SMS</code>)</strong> — to read existing Mobile Money transaction
+    messages already in your inbox, so your past business activity appears immediately.</li>
+  <li><strong>Receive SMS (<code>RECEIVE_SMS</code>)</strong> — to detect a new Mobile Money
+    transaction message as it arrives and add it to your ledger automatically.</li>
+  <li><strong>Internet (<code>INTERNET</code>)</strong> — used only for an optional, content-free
+    download of updated parsing rules (the patterns Nkaa uses to read message formats). This download
+    <strong>never sends any of your data</strong> — it only fetches rules. In the current release this
+    feature is switched off and the app makes no network connections at all.</li>
+</ul>
+<p>You can grant or revoke these permissions at any time in your device's Settings. If you deny SMS
+access, automatic capture is disabled and you can still use Nkaa for manual entries.</p>
+
+<h2>How your data is used</h2>
+<p>Your data is used <strong>only on your device</strong> to:</p>
+<ul>
+  <li>build and display your ledger and dashboards (money in, money out, fees);</li>
+  <li>let you filter and label transactions (for example Business vs Private);</li>
+  <li>generate statements and a cash-flow summary that you can export.</li>
+</ul>
+
+<h2>Where your data is stored</h2>
+<p>All of your transactions and the labels you add are stored in a <strong>local database on your
+device</strong>. Nkaa works fully offline.</p>
+
+<h2>What Nkaa does NOT do</h2>
+<ul>
+  <li><strong>No collection.</strong> Nkaa does not transmit your SMS content or your ledger off your
+    device to us or anyone else.</li>
+  <li><strong>No sharing or selling.</strong> We do not share or sell your data to any third party.</li>
+  <li><strong>No tracking.</strong> Nkaa contains no advertising, no analytics, and no third-party
+    tracking software.</li>
+  <li><strong>No accounts.</strong> Nkaa has no sign-up or login; we never receive your identity.</li>
+</ul>
+
+<h2>Sharing that you initiate</h2>
+<p>Nkaa lets you export a statement (CSV or PDF) and share it using your device's standard share
+options — for example to send to a lender or save to your files. This happens <strong>only when you
+choose to do it</strong>, and the file goes wherever you send it. Nkaa does not share anything
+automatically.</p>
+
+<h2>Data retention and deletion</h2>
+<p>Your data stays on your device until you delete it. You can delete individual entries in the app,
+or remove all data by uninstalling Nkaa, which deletes the local database. Because the data is only on
+your device, we cannot access or delete it for you.</p>
+
+<h2>Children</h2>
+<p>Nkaa is intended for adults (18 and over) running a business. It is not directed at children and
+does not knowingly collect data from children.</p>
+
+<h2>Security</h2>
+<p>Because your data never leaves your device, it is protected by your device's own security (screen
+lock, encryption). Keep your device locked and up to date.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, we will update the effective date above and post the new version at the same
+URL. Significant changes will be reflected in a future app update.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy or your data: <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></p>
+
+</body>
+</html>
