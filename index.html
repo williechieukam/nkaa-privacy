@@ -5,176 +5,560 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Nkaa</title>
 <meta name="description" content="Privacy policy for Nkaa, a Mobile Money bookkeeping app. Nkaa processes everything on your device, and nothing leaves it unless you choose to back it up.">
+<link rel="canonical" href="https://williechieukam.github.io/nkaa-privacy/">
+<meta name="theme-color" content="#F4F6F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1512" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230E6A4C'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='19' font-weight='700' text-anchor='middle' fill='%23ffffff'>N</text></svg>">
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 4rem;
-    color: #1b1b1b;
-    background: #ffffff;
+/* ---------- tokens ---------- */
+:root {
+  color-scheme: light dark;
+
+  --paper:        #F4F6F4;
+  --surface:      #FFFFFF;
+  --ink:          #10201A;
+  --ink-2:        #4A5852;
+  --rule:         #DBE2DD;
+  --rule-strong:  #C3CDC7;
+  --rule-faint:   #E4EAE5;
+  --accent:        #0E6A4C;
+  --accent-link:   #0B5A40;
+  --accent-wash:   #E6F0EA;
+  --accent-border: #A8CDBB;
+  --warn:          #9C3D14;
+  --warn-wash:     #FBEDE5;
+  --warn-border:   #DFB49B;
+  --chip-bg:       #E9EEEA;
+
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --rhythm: 1.75rem;
+  --measure: 46rem;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+p { margin: 0 0 1rem; }
+strong { font-weight: 650; }
+
+a {
+  color: var(--accent-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: .86em;
+  background: var(--chip-bg);
+  color: var(--ink);
+  padding: .12em .3em;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+}
+
+/* ---------- skip link ---------- */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.skip:focus-visible {
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 5;
+  background: var(--surface);
+  color: var(--ink);
+  padding: .6rem .9rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  font-size: .95rem;
+}
+
+/* ---------- masthead: the one signature ---------- */
+.masthead {
+  position: relative;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-block: clamp(2.25rem, 1.5rem + 3vw, 3.5rem) clamp(1.75rem, 1.25rem + 2vw, 2.5rem);
+  overflow: hidden;
+}
+/* ruled paper — the cahier these businesses keep books in */
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--rhythm) - 1px),
+    var(--rule-faint) calc(var(--rhythm) - 1px),
+    var(--rule-faint) var(--rhythm)
+  );
+  pointer-events: none;
+}
+.masthead > .wrap { position: relative; }
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 1.45rem + 2.4vw, 2.9rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+}
+
+/* meta block, set like the header of a statement */
+.meta {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(6.5rem, max-content) 1fr;
+  gap: .1rem 1rem;
+  font-size: .95rem;
+  align-items: baseline;
+}
+.meta dt {
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding-top: .32em;
+}
+.meta dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* narrow phones: stack the stub so long values get the full column */
+@media (max-width: 26rem) {
+  .meta { grid-template-columns: 1fr; gap: 0; }
+  .meta dt { padding-top: .85em; }
+  .meta dt:first-of-type { padding-top: 0; }
+}
+
+/* ---------- main flow ---------- */
+main { padding-block: clamp(2rem, 1.5rem + 2vw, 3rem) 1rem; }
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  margin-bottom: 1.75rem;
+}
+
+/* the thesis: reassurance, stated once, up front */
+.summary {
+  background: var(--accent-wash);
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  padding: 1.15rem 1.25rem;
+  margin: 0 0 2.5rem;
+}
+.summary p { margin: 0; }
+.summary .tag {
+  display: block;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .5rem;
+}
+
+/* the one paragraph with real consequences behind it */
+.warning {
+  background: var(--warn-wash);
+  border: 1px solid var(--warn-border);
+  border-radius: 10px;
+  padding: 1.15rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.warning p { margin: 0; }
+.warning .tag {
+  display: block;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--warn);
+  margin-bottom: .5rem;
+}
+
+/* ---------- contents ---------- */
+.toc {
+  margin: 0 0 3rem;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-block: 1rem;
+}
+.toc h2 {
+  margin: 0 0 .5rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border: 0;
+  padding: 0;
+}
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0 1.5rem;
+}
+.toc li { margin: 0; display: flex; }
+.toc a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: .5rem 0;
+  min-height: 2.75rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  font-size: .95rem;
+  line-height: 1.35;
+}
+.toc a:hover { color: var(--accent-link); }
+
+/* ---------- sections ---------- */
+section + section { margin-top: 2.75rem; }
+
+h2 {
+  margin: 0 0 1rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--rule);
+  font-size: clamp(1.3rem, 1.15rem + .55vw, 1.55rem);
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  scroll-margin-top: 1.25rem;
+}
+h3 {
+  margin: 2rem 0 .75rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.3;
+  scroll-margin-top: 1.25rem;
+}
+
+:target > h2,
+:target > h3 { box-shadow: -.75rem 0 0 -.6875rem var(--accent); }
+
+ul { margin: 0 0 1rem; padding-left: 1.15rem; }
+li { margin: .45rem 0; }
+
+/* the copy already leads each of these with its own negation — surface it */
+.negations { list-style: none; padding-left: 0; }
+.negations li {
+  margin: 0;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.negations li:first-child { border-top: 1px solid var(--rule); }
+.negations li:last-child { border-bottom: 0; }
+.negations li > strong:first-child {
+  display: block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .2rem;
+}
+
+/* ---------- footer ---------- */
+footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule-strong);
+  padding-block: 1.5rem 4rem;
+  font-size: .95rem;
+  color: var(--ink-2);
+}
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ---------- print ---------- */
+@media print {
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .skip, .toc { display: none; }
+  .masthead { border-bottom: 1pt solid #000; }
+  .masthead::before { display: none; }
+  .summary, .warning { border: 1pt solid #666; background: none; }
+  h2, h3 { break-after: avoid; }
+  li, p { break-inside: avoid; }
+  a { color: #000; }
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; }
+}
+
+/* ---------- dark ---------- */
+/* Tokens only, and last in the sheet, so no component rule can outrank it. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:        #0F1512;
+    --surface:      #161D19;
+    --ink:          #E4EAE6;
+    --ink-2:        #A0ACA6;
+    --rule:         #26302B;
+    --rule-strong:  #34403A;
+    --rule-faint:   #1B2320;
+    --accent:        #4FCF9C;
+    --accent-link:   #63D9AA;
+    --accent-wash:   #12241D;
+    --accent-border: #2C5B47;
+    --warn:          #F0A17A;
+    --warn-wash:     #2A1710;
+    --warn-border:   #5C3423;
+    --chip-bg:       #1E2A24;
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e6e6e6; background: #121212; }
-    a { color: #8ab4f8; }
-    .meta, hr { border-color: #333; }
-    code { background: #2a2a2a; }
-  }
-  h1 { font-size: 1.9rem; margin-bottom: .25rem; }
-  h2 { font-size: 1.25rem; margin-top: 2rem; }
-  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
-  .meta { color: #666; font-size: .95rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1.5rem; }
-  .lead { font-size: 1.05rem; }
-  .callout { background: rgba(127,127,127,.1); border-radius: 8px; padding: .9rem 1.1rem; }
-  code { background: #f1f1f1; padding: .1rem .35rem; border-radius: 4px; font-size: .9em; }
-  ul { padding-left: 1.25rem; }
-  li { margin: .35rem 0; }
-  a { color: #1a56db; }
+}
 </style>
 </head>
 <body>
 
-<h1>Privacy Policy for Nkaa</h1>
-<div class="meta">
-  <strong>Effective date:</strong> 9 August 2026<br>
-  <strong>App:</strong> Nkaa (package <code>app.vendorledger.android</code>)<br>
-  <strong>Contact:</strong> <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a>
-</div>
+<a class="skip" href="#contents">Skip to contents</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <h1>Privacy Policy for Nkaa</h1>
+    <dl class="meta">
+      <dt>Effective date</dt>
+      <dd>9 August 2026</dd>
+      <dt>App</dt>
+      <dd>Nkaa</dd>
+      <dt>Package</dt>
+      <dd><code>app.vendorledger.android</code></dd>
+      <dt>Contact</dt>
+      <dd><a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></dd>
+    </dl>
+  </div>
+</header>
+
+<main class="wrap">
 
 <p class="lead">Nkaa is a bookkeeping app for small and informal businesses that get paid
 through Mobile Money (MTN Mobile Money and Orange Money). This policy explains what data
 Nkaa accesses, how it is used, and — importantly — what Nkaa does <strong>not</strong> do with your data.</p>
 
-<p class="callout">The short version: <strong>Nkaa processes everything on your device, and nothing
-leaves it unless you choose to back it up.</strong> We do not have a server that receives your
-records, we do not collect them, and we do not share them with anyone. If you use backup, your
-records go to a place you choose: your own Google Drive, or a file you save. They never come to us.</p>
+<aside class="summary">
+  <p><span class="tag">The short version</span><strong>Nkaa processes everything on your device, and nothing
+  leaves it unless you choose to back it up.</strong> We do not have a server that receives your
+  records, we do not collect them, and we do not share them with anyone. If you use backup, your
+  records go to a place you choose: your own Google Drive, or a file you save. They never come to us.</p>
+</aside>
 
-<h2>What data Nkaa accesses</h2>
-<ul>
-  <li><strong>Mobile Money transaction SMS.</strong> With your permission, Nkaa reads the transaction
-    messages your mobile operator sends you (money received, money sent, withdrawals, fees). It uses
-    these to build your ledger automatically. Nkaa only interprets Mobile Money transaction messages;
-    other SMS in your inbox are ignored and not stored.</li>
-  <li><strong>Manual entries you add.</strong> Cash sales and expenses you type in yourself (for
-    transactions that don't generate an SMS).</li>
-  <li><strong>The ledger Nkaa builds</strong> from the above: amounts, dates, transaction direction,
-    fees, counterparties as they appear in the message, and the labels you apply (for example Business
-    or Private).</li>
-</ul>
-<p>Nkaa does <strong>not</strong> access your contacts, your photos, your location, your microphone,
-or your camera.</p>
+<nav class="toc" id="contents" aria-labelledby="contents-heading">
+  <h2 id="contents-heading">Contents</h2>
+  <ul>
+    <li><a href="#what-data">What data Nkaa accesses</a></li>
+    <li><a href="#permissions">Permissions Nkaa requests, and why</a></li>
+    <li><a href="#how-used">How your data is used</a></li>
+    <li><a href="#storage">Where your data is stored</a></li>
+    <li><a href="#backup">Backup and restore</a></li>
+    <li><a href="#not-do">What Nkaa does NOT do</a></li>
+    <li><a href="#sharing">Sharing that you initiate</a></li>
+    <li><a href="#retention">Data retention and deletion</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#changes">Changes to this policy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<h2>Permissions Nkaa requests, and why</h2>
-<ul>
-  <li><strong>Read SMS (<code>READ_SMS</code>)</strong> — to read existing Mobile Money transaction
-    messages already in your inbox, so your past business activity appears immediately.</li>
-  <li><strong>Receive SMS (<code>RECEIVE_SMS</code>)</strong> — to detect a new Mobile Money
-    transaction message as it arrives and add it to your ledger automatically.</li>
-  <li><strong>Internet (<code>INTERNET</code>)</strong> — used for two things, both optional. First, a
-    content-free download of updated parsing rules (the patterns Nkaa uses to read message formats),
-    which <strong>never sends any of your data</strong> — it only fetches rules. Second, if you choose
-    to back up to Google Drive, to upload your backup to your own Google account. If you never use
-    backup and rule updates are off, Nkaa makes no network connections at all.</li>
-</ul>
-<p>You can grant or revoke these permissions at any time in your device's Settings. If you deny SMS
-access, automatic capture is disabled and you can still use Nkaa for manual entries.</p>
+<section id="what-data">
+  <h2>What data Nkaa accesses</h2>
+  <ul>
+    <li><strong>Mobile Money transaction SMS.</strong> With your permission, Nkaa reads the transaction
+      messages your mobile operator sends you (money received, money sent, withdrawals, fees). It uses
+      these to build your ledger automatically. Nkaa only interprets Mobile Money transaction messages;
+      other SMS in your inbox are ignored and not stored.</li>
+    <li><strong>Manual entries you add.</strong> Cash sales and expenses you type in yourself (for
+      transactions that don't generate an SMS).</li>
+    <li><strong>The ledger Nkaa builds</strong> from the above: amounts, dates, transaction direction,
+      fees, counterparties as they appear in the message, and the labels you apply (for example Business
+      or Private).</li>
+  </ul>
+  <p>Nkaa does <strong>not</strong> access your contacts, your photos, your location, your microphone,
+  or your camera.</p>
+</section>
 
-<h2>How your data is used</h2>
-<p>Your data is used <strong>only on your device</strong> to:</p>
-<ul>
-  <li>build and display your ledger and dashboards (money in, money out, fees);</li>
-  <li>let you filter and label transactions (for example Business vs Private);</li>
-  <li>generate statements and a cash-flow summary that you can export.</li>
-</ul>
+<section id="permissions">
+  <h2>Permissions Nkaa requests, and why</h2>
+  <ul>
+    <li><strong>Read SMS (<code>READ_SMS</code>)</strong> — to read existing Mobile Money transaction
+      messages already in your inbox, so your past business activity appears immediately.</li>
+    <li><strong>Receive SMS (<code>RECEIVE_SMS</code>)</strong> — to detect a new Mobile Money
+      transaction message as it arrives and add it to your ledger automatically.</li>
+    <li><strong>Internet (<code>INTERNET</code>)</strong> — used for two things, both optional. First, a
+      content-free download of updated parsing rules (the patterns Nkaa uses to read message formats),
+      which <strong>never sends any of your data</strong> — it only fetches rules. Second, if you choose
+      to back up to Google Drive, to upload your backup to your own Google account. If you never use
+      backup and rule updates are off, Nkaa makes no network connections at all.</li>
+  </ul>
+  <p>You can grant or revoke these permissions at any time in your device's Settings. If you deny SMS
+  access, automatic capture is disabled and you can still use Nkaa for manual entries.</p>
+</section>
 
-<h2>Where your data is stored</h2>
-<p>All of your transactions and the labels you add are stored in a <strong>local database on your
-device</strong>. Nkaa works fully offline, and stays that way unless you use backup.</p>
+<section id="how-used">
+  <h2>How your data is used</h2>
+  <p>Your data is used <strong>only on your device</strong> to:</p>
+  <ul>
+    <li>build and display your ledger and dashboards (money in, money out, fees);</li>
+    <li>let you filter and label transactions (for example Business vs Private);</li>
+    <li>generate statements and a cash-flow summary that you can export.</li>
+  </ul>
+</section>
 
-<h2>Backup and restore (optional)</h2>
-<p>Nkaa can save a copy of your ledger so that losing your phone does not mean losing your records.
-<strong>Backup is off until you use it.</strong> There is no automatic or background upload.</p>
-<p>You choose where a backup goes:</p>
-<ul>
-  <li><strong>A file.</strong> Nkaa creates one file and you decide where it lands: your phone's
-    storage, a memory card, or sending it to yourself on WhatsApp. <strong>This file is always locked
-    with a passphrase you choose.</strong></li>
-  <li><strong>Your own Google Drive.</strong> Nkaa asks you to pick a Google account, then stores the
-    backup in a private folder in <em>your</em> Drive that only Nkaa can open. It is your account and
-    your storage, governed by Google's own terms and privacy policy. <strong>We never receive
-    it.</strong> Nkaa has no server for your records.</li>
-</ul>
-<p>For a Drive backup you choose whether to lock it with a passphrase. We recommend that you do. If you
-do not, Google can read the contents, so in that case Nkaa <strong>leaves the original SMS messages out
-of the backup</strong> and saves only the ledger figures.</p>
-<p class="callout"><strong>If you forget your passphrase, the backup cannot be opened by you, by us,
-or by anyone.</strong> There is no reset and no recovery. Write it down somewhere safe.</p>
-<p>Restoring <strong>adds</strong> entries to your phone. It never deletes or overwrites what is
-already there, and entries you have already recorded are recognised and not duplicated.</p>
+<section id="storage">
+  <h2>Where your data is stored</h2>
+  <p>All of your transactions and the labels you add are stored in a <strong>local database on your
+  device</strong>. Nkaa works fully offline, and stays that way unless you use backup.</p>
+</section>
 
-<h3>Android's own backup</h3>
-<p>Separately from the above, Android has a system backup feature that can copy app settings to your
-Google account. Nkaa's settings (such as your language and theme choice) may be included. <strong>Your
-ledger is excluded from it.</strong> Your transactions are never sent to Google's cloud by this route.
-Your ledger can still be carried across directly when you set up a new phone from your old one, which
-is a device-to-device transfer that does not go through a server.</p>
+<section id="backup">
+  <h2>Backup and restore (optional)</h2>
+  <p>Nkaa can save a copy of your ledger so that losing your phone does not mean losing your records.
+  <strong>Backup is off until you use it.</strong> There is no automatic or background upload.</p>
+  <p>You choose where a backup goes:</p>
+  <ul>
+    <li><strong>A file.</strong> Nkaa creates one file and you decide where it lands: your phone's
+      storage, a memory card, or sending it to yourself on WhatsApp. <strong>This file is always locked
+      with a passphrase you choose.</strong></li>
+    <li><strong>Your own Google Drive.</strong> Nkaa asks you to pick a Google account, then stores the
+      backup in a private folder in <em>your</em> Drive that only Nkaa can open. It is your account and
+      your storage, governed by Google's own terms and privacy policy. <strong>We never receive
+      it.</strong> Nkaa has no server for your records.</li>
+  </ul>
+  <p>For a Drive backup you choose whether to lock it with a passphrase. We recommend that you do. If you
+  do not, Google can read the contents, so in that case Nkaa <strong>leaves the original SMS messages out
+  of the backup</strong> and saves only the ledger figures.</p>
 
-<h2>What Nkaa does NOT do</h2>
-<ul>
-  <li><strong>No collection.</strong> Nkaa does not transmit your SMS content or your ledger to us. We
-    have no server that receives your records. Backups go to your own Google account or to a file you
-    choose, never to us.</li>
-  <li><strong>No sharing or selling.</strong> We do not share or sell your data to any third party.</li>
-  <li><strong>No tracking.</strong> Nkaa contains no advertising, no analytics, and no third-party
-    tracking software.</li>
-  <li><strong>No accounts.</strong> Nkaa has no sign-up or login, and we never receive your identity.
-    If you use Google Drive backup you pick one of your own Google accounts for storage; that is
-    between you and Google, and Nkaa learns nothing about you from it.</li>
-</ul>
+  <div class="warning">
+    <p><span class="tag">There is no recovery</span><strong>If you forget your passphrase, the backup cannot be opened by you, by us,
+    or by anyone.</strong> There is no reset and no recovery. Write it down somewhere safe.</p>
+  </div>
 
-<h2>Sharing that you initiate</h2>
-<p>Nkaa lets you export a statement (CSV or PDF) and share it using your device's standard share
-options — for example to send to a lender or save to your files. This happens <strong>only when you
-choose to do it</strong>, and the file goes wherever you send it. Nkaa does not share anything
-automatically.</p>
+  <p>Restoring <strong>adds</strong> entries to your phone. It never deletes or overwrites what is
+  already there, and entries you have already recorded are recognised and not duplicated.</p>
 
-<h2>Data retention and deletion</h2>
-<p>Your data stays on your device until you delete it. You can delete individual entries in the app,
-or remove all data by uninstalling Nkaa, which deletes the local database. Because the data is only on
-your device, we cannot access or delete it for you.</p>
-<p>Backups you have made are <strong>not</strong> removed when you uninstall Nkaa. To delete them:</p>
-<ul>
-  <li><strong>A backup file</strong> — delete the file wherever you saved or sent it.</li>
-  <li><strong>A Google Drive backup</strong> — it lives in your own Google account, so you remove it
-    through Google, not through us. Open <a href="https://drive.google.com">drive.google.com</a> in a
-    browser (on your phone or a computer), then go to <strong>Settings → Manage apps</strong>, find
-    Nkaa, and choose <strong>Options → Delete hidden app data</strong>. You can do this at any time,
-    with or without Nkaa installed, and it does not need our involvement. Note that Google can take a
-    few days to show the freed space.</li>
-</ul>
+  <h3 id="android-backup">Android's own backup</h3>
+  <p>Separately from the above, Android has a system backup feature that can copy app settings to your
+  Google account. Nkaa's settings (such as your language and theme choice) may be included. <strong>Your
+  ledger is excluded from it.</strong> Your transactions are never sent to Google's cloud by this route.
+  Your ledger can still be carried across directly when you set up a new phone from your old one, which
+  is a device-to-device transfer that does not go through a server.</p>
+</section>
 
-<h2>Children</h2>
-<p>Nkaa is intended for adults (18 and over) running a business. It is not directed at children and
-does not knowingly collect data from children.</p>
+<section id="not-do">
+  <h2>What Nkaa does NOT do</h2>
+  <ul class="negations">
+    <li><strong>No collection.</strong> Nkaa does not transmit your SMS content or your ledger to us. We
+      have no server that receives your records. Backups go to your own Google account or to a file you
+      choose, never to us.</li>
+    <li><strong>No sharing or selling.</strong> We do not share or sell your data to any third party.</li>
+    <li><strong>No tracking.</strong> Nkaa contains no advertising, no analytics, and no third-party
+      tracking software.</li>
+    <li><strong>No accounts.</strong> Nkaa has no sign-up or login, and we never receive your identity.
+      If you use Google Drive backup you pick one of your own Google accounts for storage; that is
+      between you and Google, and Nkaa learns nothing about you from it.</li>
+  </ul>
+</section>
 
-<h2>Security</h2>
-<p>Your records are protected by your device's own security (screen lock, encryption), and Nkaa offers
-an optional app lock that requires your fingerprint, face, or screen lock to open it.</p>
-<p>Backups are encrypted on your device before they are saved or uploaded, using strong encryption
-(AES-256) with a key derived from the passphrase you choose. Nobody who obtains the backup (including
-Google, and including us) can read a passphrase-protected backup without that passphrase. The
-trade-off is that a forgotten passphrase cannot be recovered.</p>
-<p>Keep your device locked and up to date, and keep your backup passphrase somewhere safe.</p>
+<section id="sharing">
+  <h2>Sharing that you initiate</h2>
+  <p>Nkaa lets you export a statement (CSV or PDF) and share it using your device's standard share
+  options — for example to send to a lender or save to your files. This happens <strong>only when you
+  choose to do it</strong>, and the file goes wherever you send it. Nkaa does not share anything
+  automatically.</p>
+</section>
 
-<h2>Changes to this policy</h2>
-<p>If this policy changes, we will update the effective date above and post the new version at the same
-URL. Significant changes will be reflected in a future app update.</p>
+<section id="retention">
+  <h2>Data retention and deletion</h2>
+  <p>Your data stays on your device until you delete it. You can delete individual entries in the app,
+  or remove all data by uninstalling Nkaa, which deletes the local database. Because the data is only on
+  your device, we cannot access or delete it for you.</p>
+  <p>Backups you have made are <strong>not</strong> removed when you uninstall Nkaa. To delete them:</p>
+  <ul>
+    <li><strong>A backup file</strong> — delete the file wherever you saved or sent it.</li>
+    <li><strong>A Google Drive backup</strong> — it lives in your own Google account, so you remove it
+      through Google, not through us. Open <a href="https://drive.google.com">drive.google.com</a> in a
+      browser (on your phone or a computer), then go to <strong>Settings → Manage apps</strong>, find
+      Nkaa, and choose <strong>Options → Delete hidden app data</strong>. You can do this at any time,
+      with or without Nkaa installed, and it does not need our involvement. Note that Google can take a
+      few days to show the freed space.</li>
+  </ul>
+</section>
 
-<h2>Contact</h2>
-<p>Questions about this policy or your data: <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></p>
+<section id="children">
+  <h2>Children</h2>
+  <p>Nkaa is intended for adults (18 and over) running a business. It is not directed at children and
+  does not knowingly collect data from children.</p>
+</section>
+
+<section id="security">
+  <h2>Security</h2>
+  <p>Your records are protected by your device's own security (screen lock, encryption), and Nkaa offers
+  an optional app lock that requires your fingerprint, face, or screen lock to open it.</p>
+  <p>Backups are encrypted on your device before they are saved or uploaded, using strong encryption
+  (AES-256) with a key derived from the passphrase you choose. Nobody who obtains the backup (including
+  Google, and including us) can read a passphrase-protected backup without that passphrase. The
+  trade-off is that a forgotten passphrase cannot be recovered.</p>
+  <p>Keep your device locked and up to date, and keep your backup passphrase somewhere safe.</p>
+</section>
+
+<section id="changes">
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, we will update the effective date above and post the new version at the same
+  URL. Significant changes will be reflected in a future app update.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Questions about this policy or your data: <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p>Nkaa, bookkeeping for Mobile Money. This policy is effective 9 August 2026.</p>
+</footer>
 
 </body>
 </html>
