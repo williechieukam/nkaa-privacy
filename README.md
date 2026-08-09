@@ -3,16 +3,32 @@
 Public hosting for the [Nkaa](https://github.com/williechieukam/vendor-ledger) app
 privacy policy, served via GitHub Pages for the Google Play Store listing.
 
-**Live URL:** https://williechieukam.github.io/nkaa-privacy/
+**Live URLs**
 
-The page (`index.html`) is the canonical, publicly linkable privacy policy. The source
-of truth for the wording lives in the app repo at `docs/privacy-policy.md`; keep the two
-in sync when the policy changes.
+| | |
+|---|---|
+| English (canonical) | https://williechieukam.github.io/nkaa-privacy/ |
+| Français | https://williechieukam.github.io/nkaa-privacy/fr.html |
+
+`index.html` is the canonical, publicly linkable privacy policy. The source of truth for
+the English wording lives in the app repo at `docs/privacy-policy.md`; keep the two in
+sync when the policy changes.
+
+`fr.html` is a translation of the same policy, not a separate document — the two must
+stay claim-for-claim identical. They share `style.css`, and both carry `hreflang`
+alternates plus a language switcher in the masthead. The French uses the app's own
+vocabulary from `app/src/main/res/values-fr/strings.xml` (registre, opérations,
+sauvegarde, phrase secrète, Affaire / Privé, relevé) so the policy names things the way
+the app does, and the narrow no-break space (U+202F) before `: ; ? !` the way the app's
+strings do.
+
+When either page changes, check parity — matching counts for sections, headings, list
+items, and `<strong>` runs is a cheap way to catch a dropped claim.
 
 ## Design
 
-The page uses the app's design system, so it reads as the same product. Everything is
-self-contained — no CDN, no analytics, no third-party requests, which is the least a
+Both pages use the app's design system, so they read as the same product. Everything is
+self-hosted — no CDN, no analytics, no third-party requests, which is the least a
 privacy policy can do.
 
 **Color** — the "Grassfields regalia" palette from
@@ -30,7 +46,7 @@ down from 603 KB). Both families are SIL OFL 1.1; see `fonts/OFL.txt`. To regene
 after a font change in the app repo, `pip install fonttools brotli` and re-run
 `pyftsubset` per the ranges recorded in `fonts/OFL.txt`.
 
-When changing the stylesheet, keep the `@media (prefers-color-scheme: dark)` block last
+When changing `style.css`, keep the `@media (prefers-color-scheme: dark)` block last
 and let it redefine **only** `:root` tokens. It previously sat above the rules it meant
 to override and silently lost the cascade, which left the permission chips illegible in
 dark mode.

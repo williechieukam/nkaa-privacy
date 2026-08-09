@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Nkaa</title>
+<meta name="description" content="Politique de confidentialité de Nkaa, une application de comptabilité pour le Mobile Money. Nkaa traite tout sur votre téléphone, et rien n'en sort à moins que vous ne choisissiez de faire une sauvegarde.">
+<link rel="canonical" href="https://williechieukam.github.io/nkaa-privacy/fr.html">
+<link rel="alternate" hreflang="en" href="https://williechieukam.github.io/nkaa-privacy/">
+<link rel="alternate" hreflang="fr" href="https://williechieukam.github.io/nkaa-privacy/fr.html">
+<link rel="alternate" hreflang="x-default" href="https://williechieukam.github.io/nkaa-privacy/">
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E141C" media="(prefers-color-scheme: dark)">
+<!-- La marque de l'app, reprise telle quelle de docs/branding/masters/nkaa-mark-small.svg -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><polygon points='256,36 442,256 256,476 70,256' fill='%2320324F'/><g fill='%23EDF1F4'><rect x='196' y='168' width='28' height='176'/><rect x='288' y='168' width='28' height='176'/><polygon points='196,168 224,168 316,344 288,344'/></g></svg>">
+<link rel="preload" href="fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bricolage-grotesque-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#sommaire">Aller au sommaire</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <nav class="langs" aria-label="Langue">
+      <a href="index.html" lang="en" hreflang="en">English</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <span aria-current="page" lang="fr">Français</span>
+    </nav>
+    <h1>Politique de confidentialité de Nkaa</h1>
+    <dl class="meta">
+      <dt>Date d'entrée en vigueur</dt>
+      <dd>9 août 2026</dd>
+      <dt>Application</dt>
+      <dd>Nkaa</dd>
+      <dt>Paquet</dt>
+      <dd><code>app.vendorledger.android</code></dd>
+      <dt>Contact</dt>
+      <dd><a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></dd>
+    </dl>
+  </div>
+</header>
+
+<main class="wrap">
+
+<p class="lead">Nkaa est une application de comptabilité pour les petites entreprises et les
+activités informelles qui sont payées par Mobile Money (MTN Mobile Money et Orange Money).
+Cette politique explique à quelles données Nkaa accède, comment elles sont utilisées et —
+surtout — ce que Nkaa ne fait <strong>pas</strong> de vos données.</p>
+
+<aside class="summary">
+  <p><span class="tag">La version courte</span><strong>Nkaa traite tout sur votre téléphone, et rien
+  n'en sort à moins que vous ne choisissiez de faire une sauvegarde.</strong> Nous n'avons aucun
+  serveur qui reçoit vos opérations, nous ne les collectons pas et nous ne les partageons avec
+  personne. Si vous faites une sauvegarde, elle va là où vous le décidez&#8239;: votre propre Google
+  Drive, ou un fichier que vous enregistrez. Elle ne nous parvient jamais.</p>
+</aside>
+
+<nav class="toc" id="sommaire" aria-labelledby="sommaire-titre">
+  <h2 id="sommaire-titre">Sommaire</h2>
+  <ul>
+    <li><a href="#donnees">À quelles données Nkaa accède</a></li>
+    <li><a href="#permissions">Les permissions demandées, et pourquoi</a></li>
+    <li><a href="#utilisation">Comment vos données sont utilisées</a></li>
+    <li><a href="#stockage">Où vos données sont stockées</a></li>
+    <li><a href="#sauvegarde">Sauvegarde et restauration</a></li>
+    <li><a href="#ce-que-nkaa-ne-fait-pas">Ce que Nkaa ne fait PAS</a></li>
+    <li><a href="#partage">Les partages que vous initiez</a></li>
+    <li><a href="#conservation">Conservation et suppression</a></li>
+    <li><a href="#enfants">Enfants</a></li>
+    <li><a href="#securite">Sécurité</a></li>
+    <li><a href="#modifications">Modifications de cette politique</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="donnees">
+  <h2>À quelles données Nkaa accède</h2>
+  <ul>
+    <li><strong>Les SMS de transaction Mobile Money.</strong> Avec votre autorisation, Nkaa lit les
+      messages de transaction que votre opérateur vous envoie (argent reçu, argent envoyé, retraits,
+      frais). Il s'en sert pour construire automatiquement votre registre. Nkaa n'interprète que les
+      SMS de transaction Mobile Money&#8239;; les autres SMS de votre boîte de réception sont ignorés
+      et ne sont pas enregistrés.</li>
+    <li><strong>Les opérations que vous saisissez vous-même.</strong> Ventes en espèces et dépenses
+      que vous tapez à la main (pour les opérations qui ne génèrent pas de SMS).</li>
+    <li><strong>Le registre que Nkaa construit</strong> à partir de ce qui précède&#8239;: montants,
+      dates, sens de l'opération, frais, contreparties telles qu'elles apparaissent dans le message,
+      et les étiquettes que vous appliquez (par exemple Affaire ou Privé).</li>
+  </ul>
+  <p>Nkaa n'accède <strong>pas</strong> à vos contacts, à vos photos, à votre position, à votre
+  microphone ni à votre caméra.</p>
+</section>
+
+<section id="permissions">
+  <h2>Les permissions demandées par Nkaa, et pourquoi</h2>
+  <ul>
+    <li><strong>Lire les SMS (<code>READ_SMS</code>)</strong> — pour lire les SMS de transaction
+      Mobile Money déjà présents dans votre boîte de réception, afin que votre activité passée
+      apparaisse immédiatement.</li>
+    <li><strong>Recevoir les SMS (<code>RECEIVE_SMS</code>)</strong> — pour détecter un nouveau SMS
+      de transaction Mobile Money dès son arrivée et l'ajouter automatiquement à votre registre.</li>
+    <li><strong>Internet (<code>INTERNET</code>)</strong> — utilisée pour deux choses, toutes deux
+      facultatives. D'abord, le téléchargement de règles de lecture mises à jour (les motifs que Nkaa
+      utilise pour lire les formats de messages), qui <strong>n'envoie jamais aucune de vos
+      données</strong>&#8239;: il ne fait que récupérer des règles. Ensuite, si vous choisissez de
+      sauvegarder sur Google Drive, pour envoyer votre sauvegarde vers votre propre compte Google. Si
+      vous n'utilisez jamais la sauvegarde et que les mises à jour de règles sont désactivées, Nkaa
+      n'établit aucune connexion réseau.</li>
+  </ul>
+  <p>Vous pouvez accorder ou retirer ces permissions à tout moment dans les Paramètres de votre
+  téléphone. Si vous refusez l'accès aux SMS, la saisie automatique est désactivée et vous pouvez
+  toujours utiliser Nkaa pour saisir vos opérations à la main.</p>
+</section>
+
+<section id="utilisation">
+  <h2>Comment vos données sont utilisées</h2>
+  <p>Vos données servent <strong>uniquement sur votre téléphone</strong> à&#8239;:</p>
+  <ul>
+    <li>construire et afficher votre registre et vos tableaux de bord (entrées, sorties, frais)&#8239;;</li>
+    <li>filtrer et étiqueter vos opérations (par exemple Affaire ou Privé)&#8239;;</li>
+    <li>produire des relevés et un résumé de trésorerie que vous pouvez exporter.</li>
+  </ul>
+</section>
+
+<section id="stockage">
+  <h2>Où vos données sont stockées</h2>
+  <p>Toutes vos opérations et les étiquettes que vous ajoutez sont conservées dans une <strong>base
+  de données locale, sur votre téléphone</strong>. Nkaa fonctionne entièrement hors ligne, et le
+  reste tant que vous n'utilisez pas la sauvegarde.</p>
+</section>
+
+<section id="sauvegarde">
+  <h2>Sauvegarde et restauration (facultatif)</h2>
+  <p>Nkaa peut enregistrer une copie de votre registre pour qu'un téléphone perdu ne vous coûte pas
+  vos données. <strong>La sauvegarde reste inactive tant que vous ne l'utilisez pas.</strong> Il n'y
+  a aucun envoi automatique ni en arrière-plan.</p>
+  <p>Vous choisissez où va votre sauvegarde&#8239;:</p>
+  <ul>
+    <li><strong>Un fichier.</strong> Nkaa crée un fichier et vous décidez où il atterrit&#8239;: la
+      mémoire de votre téléphone, une carte mémoire, ou en vous l'envoyant sur WhatsApp. <strong>Ce
+      fichier est toujours verrouillé avec une phrase secrète que vous choisissez.</strong></li>
+    <li><strong>Votre propre Google Drive.</strong> Nkaa vous demande de choisir un compte Google,
+      puis conserve la sauvegarde dans un dossier privé de <em>votre</em> Drive, que seul Nkaa peut
+      ouvrir. C'est votre compte et votre espace de stockage, régis par les conditions et la
+      politique de confidentialité de Google. <strong>Nous ne la recevons jamais.</strong> Nkaa n'a
+      aucun serveur pour vos données.</li>
+  </ul>
+  <p>Pour une sauvegarde sur Drive, vous choisissez de la verrouiller ou non avec une phrase secrète.
+  Nous vous recommandons de le faire. Sinon, Google peut en lire le contenu&#8239;; dans ce cas, Nkaa
+  <strong>exclut de la sauvegarde les SMS d'origine</strong> et n'enregistre que les chiffres du
+  registre.</p>
+
+  <div class="warning">
+    <p><span class="tag">Aucune récupération possible</span><strong>Si vous oubliez votre phrase
+    secrète, la sauvegarde ne pourra être ouverte ni par vous, ni par nous, ni par personne.</strong>
+    Il n'y a ni réinitialisation ni récupération. Notez-la en lieu sûr.</p>
+  </div>
+
+  <p>La restauration <strong>ajoute</strong> des opérations à votre téléphone. Elle ne supprime ni ne
+  remplace jamais ce qui s'y trouve déjà, et les opérations que vous avez déjà enregistrées sont
+  reconnues et ne sont pas dupliquées.</p>
+
+  <h3 id="sauvegarde-android">La sauvegarde propre à Android</h3>
+  <p>Indépendamment de ce qui précède, Android dispose d'une fonction de sauvegarde système qui peut
+  copier les réglages des applications vers votre compte Google. Les réglages de Nkaa (comme votre
+  langue et votre apparence) peuvent en faire partie. <strong>Votre registre en est exclu.</strong>
+  Vos opérations ne sont jamais envoyées vers le cloud de Google par ce biais. Votre registre peut
+  tout de même être transféré directement lorsque vous configurez un nouveau téléphone à partir de
+  l'ancien&#8239;: il s'agit d'un transfert d'appareil à appareil, qui ne passe par aucun serveur.</p>
+</section>
+
+<section id="ce-que-nkaa-ne-fait-pas">
+  <h2>Ce que Nkaa ne fait PAS</h2>
+  <ul class="negations">
+    <li><strong>Aucune collecte.</strong> Nkaa ne nous transmet ni le contenu de vos SMS ni votre
+      registre. Nous n'avons aucun serveur qui reçoit vos données. Les sauvegardes vont vers votre
+      propre compte Google ou vers un fichier que vous choisissez, jamais vers nous.</li>
+    <li><strong>Aucun partage ni vente.</strong> Nous ne partageons ni ne vendons vos données à aucun
+      tiers.</li>
+    <li><strong>Aucun suivi.</strong> Nkaa ne contient aucune publicité, aucune mesure d'audience et
+      aucun logiciel de suivi tiers.</li>
+    <li><strong>Aucun compte.</strong> Nkaa n'a ni inscription ni connexion, et nous ne recevons
+      jamais votre identité. Si vous utilisez la sauvegarde Google Drive, vous choisissez l'un de vos
+      propres comptes Google pour le stockage&#8239;; cela se passe entre vous et Google, et Nkaa
+      n'apprend rien sur vous à cette occasion.</li>
+  </ul>
+</section>
+
+<section id="partage">
+  <h2>Les partages que vous initiez</h2>
+  <p>Nkaa vous permet d'exporter un relevé (CSV ou PDF) et de le partager avec les options de partage
+  habituelles de votre téléphone — par exemple pour l'envoyer à un prêteur ou l'enregistrer dans vos
+  fichiers. Cela n'arrive <strong>que si vous le décidez</strong>, et le fichier va là où vous
+  l'envoyez. Nkaa ne partage rien automatiquement.</p>
+</section>
+
+<section id="conservation">
+  <h2>Conservation et suppression des données</h2>
+  <p>Vos données restent sur votre téléphone jusqu'à ce que vous les supprimiez. Vous pouvez
+  supprimer des opérations une par une dans l'application, ou tout effacer en désinstallant Nkaa, ce
+  qui supprime la base de données locale. Comme les données ne sont que sur votre téléphone, nous ne
+  pouvons ni y accéder ni les supprimer à votre place.</p>
+  <p>Les sauvegardes que vous avez faites <strong>ne sont pas</strong> supprimées lorsque vous
+  désinstallez Nkaa. Pour les supprimer&#8239;:</p>
+  <ul>
+    <li><strong>Un fichier de sauvegarde</strong> — supprimez le fichier là où vous l'avez enregistré
+      ou envoyé.</li>
+    <li><strong>Une sauvegarde Google Drive</strong> — elle se trouve dans votre propre compte
+      Google, vous la retirez donc par Google, et non par nous. Ouvrez
+      <a href="https://drive.google.com">drive.google.com</a> dans un navigateur (sur votre téléphone
+      ou sur un ordinateur), puis allez dans <strong>Paramètres → Gérer les applications</strong>,
+      trouvez Nkaa et choisissez <strong>Options → Supprimer les données cachées de
+      l'application</strong>. Vous pouvez le faire à tout moment, avec ou sans Nkaa installé, et cela
+      ne nécessite pas notre intervention. Notez que Google peut mettre quelques jours à afficher
+      l'espace libéré.</li>
+  </ul>
+</section>
+
+<section id="enfants">
+  <h2>Enfants</h2>
+  <p>Nkaa s'adresse à des adultes (18 ans et plus) qui exercent une activité. L'application ne vise
+  pas les enfants et ne collecte pas sciemment de données les concernant.</p>
+</section>
+
+<section id="securite">
+  <h2>Sécurité</h2>
+  <p>Vos données sont protégées par la sécurité de votre téléphone (verrouillage de l'écran,
+  chiffrement), et Nkaa propose un verrouillage de l'application facultatif, qui exige votre
+  empreinte, votre visage ou votre code d'écran pour l'ouvrir.</p>
+  <p>Les sauvegardes sont chiffrées sur votre téléphone avant d'être enregistrées ou envoyées, avec
+  un chiffrement fort (AES-256) et une clé dérivée de la phrase secrète que vous choisissez.
+  Quiconque obtient la sauvegarde — y compris Google, y compris nous — ne peut pas lire une
+  sauvegarde protégée par une phrase secrète sans cette phrase. La contrepartie est qu'une phrase
+  secrète oubliée ne peut pas être récupérée.</p>
+  <p>Gardez votre téléphone verrouillé et à jour, et conservez votre phrase secrète en lieu sûr.</p>
+</section>
+
+<section id="modifications">
+  <h2>Modifications de cette politique</h2>
+  <p>Si cette politique change, nous mettrons à jour la date d'entrée en vigueur ci-dessus et
+  publierons la nouvelle version à la même adresse. Les changements importants seront répercutés dans
+  une future mise à jour de l'application.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Questions sur cette politique ou sur vos données&#8239;:
+  <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p>Nkaa, la comptabilité pour le Mobile Money. Cette politique entre en vigueur le 9 août 2026.</p>
+</footer>
+
+</body>
+</html>
