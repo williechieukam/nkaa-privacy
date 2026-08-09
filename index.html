@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Nkaa</title>
-<meta name="description" content="Privacy policy for Nkaa, an offline Mobile Money bookkeeping app. Nkaa processes everything on your device and sends nothing anywhere.">
+<meta name="description" content="Privacy policy for Nkaa, a Mobile Money bookkeeping app. Nkaa processes everything on your device, and nothing leaves it unless you choose to back it up.">
 <style>
   :root { color-scheme: light dark; }
   body {
@@ -24,6 +24,7 @@
   }
   h1 { font-size: 1.9rem; margin-bottom: .25rem; }
   h2 { font-size: 1.25rem; margin-top: 2rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
   .meta { color: #666; font-size: .95rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1.5rem; }
   .lead { font-size: 1.05rem; }
   .callout { background: rgba(127,127,127,.1); border-radius: 8px; padding: .9rem 1.1rem; }
@@ -37,18 +38,19 @@
 
 <h1>Privacy Policy for Nkaa</h1>
 <div class="meta">
-  <strong>Effective date:</strong> 26 June 2026<br>
+  <strong>Effective date:</strong> 9 August 2026<br>
   <strong>App:</strong> Nkaa (package <code>app.vendorledger.android</code>)<br>
   <strong>Contact:</strong> <a href="mailto:willie.chieukam@gmail.com">willie.chieukam@gmail.com</a>
 </div>
 
-<p class="lead">Nkaa is an offline bookkeeping app for small and informal businesses that get paid
+<p class="lead">Nkaa is a bookkeeping app for small and informal businesses that get paid
 through Mobile Money (MTN Mobile Money and Orange Money). This policy explains what data
 Nkaa accesses, how it is used, and — importantly — what Nkaa does <strong>not</strong> do with your data.</p>
 
-<p class="callout">The short version: <strong>Nkaa processes everything on your device and sends nothing
-anywhere.</strong> We do not have a server that receives your data, we do not collect it, and we do
-not share it with anyone.</p>
+<p class="callout">The short version: <strong>Nkaa processes everything on your device, and nothing
+leaves it unless you choose to back it up.</strong> We do not have a server that receives your
+records, we do not collect them, and we do not share them with anyone. If you use backup, your
+records go to a place you choose: your own Google Drive, or a file you save. They never come to us.</p>
 
 <h2>What data Nkaa accesses</h2>
 <ul>
@@ -71,10 +73,11 @@ or your camera.</p>
     messages already in your inbox, so your past business activity appears immediately.</li>
   <li><strong>Receive SMS (<code>RECEIVE_SMS</code>)</strong> — to detect a new Mobile Money
     transaction message as it arrives and add it to your ledger automatically.</li>
-  <li><strong>Internet (<code>INTERNET</code>)</strong> — used only for an optional, content-free
-    download of updated parsing rules (the patterns Nkaa uses to read message formats). This download
-    <strong>never sends any of your data</strong> — it only fetches rules. In the current release this
-    feature is switched off and the app makes no network connections at all.</li>
+  <li><strong>Internet (<code>INTERNET</code>)</strong> — used for two things, both optional. First, a
+    content-free download of updated parsing rules (the patterns Nkaa uses to read message formats),
+    which <strong>never sends any of your data</strong> — it only fetches rules. Second, if you choose
+    to back up to Google Drive, to upload your backup to your own Google account. If you never use
+    backup and rule updates are off, Nkaa makes no network connections at all.</li>
 </ul>
 <p>You can grant or revoke these permissions at any time in your device's Settings. If you deny SMS
 access, automatic capture is disabled and you can still use Nkaa for manual entries.</p>
@@ -89,16 +92,47 @@ access, automatic capture is disabled and you can still use Nkaa for manual entr
 
 <h2>Where your data is stored</h2>
 <p>All of your transactions and the labels you add are stored in a <strong>local database on your
-device</strong>. Nkaa works fully offline.</p>
+device</strong>. Nkaa works fully offline, and stays that way unless you use backup.</p>
+
+<h2>Backup and restore (optional)</h2>
+<p>Nkaa can save a copy of your ledger so that losing your phone does not mean losing your records.
+<strong>Backup is off until you use it.</strong> There is no automatic or background upload.</p>
+<p>You choose where a backup goes:</p>
+<ul>
+  <li><strong>A file.</strong> Nkaa creates one file and you decide where it lands: your phone's
+    storage, a memory card, or sending it to yourself on WhatsApp. <strong>This file is always locked
+    with a passphrase you choose.</strong></li>
+  <li><strong>Your own Google Drive.</strong> Nkaa asks you to pick a Google account, then stores the
+    backup in a private folder in <em>your</em> Drive that only Nkaa can open. It is your account and
+    your storage, governed by Google's own terms and privacy policy. <strong>We never receive
+    it.</strong> Nkaa has no server for your records.</li>
+</ul>
+<p>For a Drive backup you choose whether to lock it with a passphrase. We recommend that you do. If you
+do not, Google can read the contents, so in that case Nkaa <strong>leaves the original SMS messages out
+of the backup</strong> and saves only the ledger figures.</p>
+<p class="callout"><strong>If you forget your passphrase, the backup cannot be opened by you, by us,
+or by anyone.</strong> There is no reset and no recovery. Write it down somewhere safe.</p>
+<p>Restoring <strong>adds</strong> entries to your phone. It never deletes or overwrites what is
+already there, and entries you have already recorded are recognised and not duplicated.</p>
+
+<h3>Android's own backup</h3>
+<p>Separately from the above, Android has a system backup feature that can copy app settings to your
+Google account. Nkaa's settings (such as your language and theme choice) may be included. <strong>Your
+ledger is excluded from it.</strong> Your transactions are never sent to Google's cloud by this route.
+Your ledger can still be carried across directly when you set up a new phone from your old one, which
+is a device-to-device transfer that does not go through a server.</p>
 
 <h2>What Nkaa does NOT do</h2>
 <ul>
-  <li><strong>No collection.</strong> Nkaa does not transmit your SMS content or your ledger off your
-    device to us or anyone else.</li>
+  <li><strong>No collection.</strong> Nkaa does not transmit your SMS content or your ledger to us. We
+    have no server that receives your records. Backups go to your own Google account or to a file you
+    choose, never to us.</li>
   <li><strong>No sharing or selling.</strong> We do not share or sell your data to any third party.</li>
   <li><strong>No tracking.</strong> Nkaa contains no advertising, no analytics, and no third-party
     tracking software.</li>
-  <li><strong>No accounts.</strong> Nkaa has no sign-up or login; we never receive your identity.</li>
+  <li><strong>No accounts.</strong> Nkaa has no sign-up or login, and we never receive your identity.
+    If you use Google Drive backup you pick one of your own Google accounts for storage; that is
+    between you and Google, and Nkaa learns nothing about you from it.</li>
 </ul>
 
 <h2>Sharing that you initiate</h2>
@@ -111,14 +145,29 @@ automatically.</p>
 <p>Your data stays on your device until you delete it. You can delete individual entries in the app,
 or remove all data by uninstalling Nkaa, which deletes the local database. Because the data is only on
 your device, we cannot access or delete it for you.</p>
+<p>Backups you have made are <strong>not</strong> removed when you uninstall Nkaa. To delete them:</p>
+<ul>
+  <li><strong>A backup file</strong> — delete the file wherever you saved or sent it.</li>
+  <li><strong>A Google Drive backup</strong> — it lives in your own Google account, so you remove it
+    through Google, not through us. Open <a href="https://drive.google.com">drive.google.com</a> in a
+    browser (on your phone or a computer), then go to <strong>Settings → Manage apps</strong>, find
+    Nkaa, and choose <strong>Options → Delete hidden app data</strong>. You can do this at any time,
+    with or without Nkaa installed, and it does not need our involvement. Note that Google can take a
+    few days to show the freed space.</li>
+</ul>
 
 <h2>Children</h2>
 <p>Nkaa is intended for adults (18 and over) running a business. It is not directed at children and
 does not knowingly collect data from children.</p>
 
 <h2>Security</h2>
-<p>Because your data never leaves your device, it is protected by your device's own security (screen
-lock, encryption). Keep your device locked and up to date.</p>
+<p>Your records are protected by your device's own security (screen lock, encryption), and Nkaa offers
+an optional app lock that requires your fingerprint, face, or screen lock to open it.</p>
+<p>Backups are encrypted on your device before they are saved or uploaded, using strong encryption
+(AES-256) with a key derived from the passphrase you choose. Nobody who obtains the backup (including
+Google, and including us) can read a passphrase-protected backup without that passphrase. The
+trade-off is that a forgotten passphrase cannot be recovered.</p>
+<p>Keep your device locked and up to date, and keep your backup passphrase somewhere safe.</p>
 
 <h2>Changes to this policy</h2>
 <p>If this policy changes, we will update the effective date above and post the new version at the same
